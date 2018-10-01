@@ -1,0 +1,23 @@
+{
+    "routes": [
+        {
+            "name": "",
+            "view": "home"
+        }
+    ],
+    "sections": [
+        {
+            "name": "{blabla}",
+            "routes": [
+                {
+                    "name": "{pseudo}",
+                    "view": "profile"
+                }
+            ]
+        }
+    ],
+    "default": {
+        "response": 404,
+        "view": "404"
+    }
+}

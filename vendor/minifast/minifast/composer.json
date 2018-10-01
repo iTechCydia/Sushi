@@ -1,0 +1,24 @@
+{
+    "name": "minifast/minifast",
+    "description": "A little framework, very simple to use and ultra fast",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Bathelier",
+            "email": "vincent.bathelier98@gmail.com",
+            "homepage": "http://getminifast.org",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "minifast/minifast-orm": "^1",
+        "twig/twig": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MiniFast\\": "src/MiniFast/",
+            "MiniFast\\Controller\\": "../../../controllers/"
+        }
+    }
+}
