@@ -7,6 +7,10 @@
         {
             "name": "about",
             "view": "about"
+        },
+        {
+            "name": "map",
+            "view": "map"
         }
     ],
     "default": {
