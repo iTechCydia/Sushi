@@ -1,0 +1,29 @@
+{% extends 'container-fluid.twig' %}
+{% import 'macro.forms.twig' as form %}
+
+{% block container %}
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-lg-4">
+            <div class="card bg-light mb-3 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Login</h5>
+                    <form action="/req/login" method="post">
+                        {{ form.text('email', null, {required: true, placeholder: 'Adresse email', prepend: { icon: 'envelope' } }, 'Adresse email') }}
+                        {{ form.password('password', null, {required: true, placeholder: 'Password', prepend: { icon: 'lock-alt' } }, 'Password') }}
+                        <div class="text-right">
+                            <a href="/" class="btn btn-secondary">
+                                <i class="fal fa-times"></i>
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fal fa-sign-in"></i>
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="alert alert-primary"><a class="text-muted" href="/login/help">Help me, I forgot my password...</a></div>
+        </div>
+    </div>
+{% endblock %}
