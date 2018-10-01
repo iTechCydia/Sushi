@@ -3,6 +3,10 @@
         {
             "name": "",
             "view": "home"
+        },
+        {
+            "name": "about",
+            "view": "about"
         }
     ],
     "sections": [
