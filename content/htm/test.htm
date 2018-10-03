@@ -33,7 +33,7 @@
    <div id="floating-panel" style="visibility:visible;">
     <table>
         <td><b>Zoom</b></td><td id="zoom-cell" value=1>1</td>
-        <td><b>POV Heading</b></td><td id="heading-cell" value=270>270</td>
+        <td><b>POV Heading</b></td><td id="heading-cell" value=105>105</td>
         <td><b>POV Pitch</b></td><td id="pitch-cell">0.0</td>
         <td><b>FOV</b></td><td id="fov-cell">90</td>
         <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
@@ -47,10 +47,9 @@
 	
     <script>
 	var panorama, panoatribute, txtFile, ancienpano=-1;var tempovalue = [
-	'{"ID":"0","name":"Start","link0": {"heading": 286,"description": "go1","pano": 1}}',//start
-	'{"ID":"1","name":"Pano1","link0": {"heading": 286,"description": "go2","pano": 2},"POPUP1":"EPSI <br><a href=http://epsi.fr target=_blank><img src=epsi.jpg></a>","V1":330,"V2":90,"mark1":{"X":11,"Y":-5,"name":"PC","cont":"Un PC"},"mark2":{"X":324,"Y":-1,"name":"Tableau","cont":"Un tableau"},"mark3":{"X":222,"Y":0,"name":"Exterieur","cont":"Accès a l\'exterieur du batiment"}}',
-	'{"ID":"2","name":"Pano2","link0": {"heading": 105,"description": "go1","pano": 1},"link1": {"heading": 286,"description": "go3","pano": 3}}',
-	'{"ID":"3","name":"Pano3","link0": {"heading": 105,"description": "go2","pano": 2}}'
+	'{"ID":"0","name":"Start","link0": {"heading": 105,"description": "go1","pano": 1}}',//start
+	'{"ID":"1","name":"Pano1","link0": {"heading": 105,"description": "go2","pano": 2},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>Capitale Régionale du Languedoc Roussillon, Montpellier séduit par la douceur de son climat, les charmes de son architecture et sa vie culturelle très dense. C\’est aussi un vivier de start-up et d\’acteurs du numérique qui en font une ville connectée dynamique.</td><td><a href=http://epsi.fr target=_blank><img src=/content/img/epsi.jpg></a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Parking du batiment des Apoticaires, Les élèves n\'on pas le droit de ce garer ici !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Un FoodTruck"}}',
+	'{"ID":"2","name":"Pano2","link0": {"heading": 286,"description": "go1","pano": 1}}'
 	];
 	
 function start()
@@ -66,7 +65,7 @@ function start()
 	intervalId = setInterval(bip, 33);
 }
 
-var cache_oldPOV=270;
+var cache_oldPOV=105;
 function bip()
 {
 var correc=2;var recupPOV=document.getElementById("heading-cell").innerHTML;
@@ -232,7 +231,7 @@ function initPano() {
         var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('map'), {
 			pov: {
-                heading: 270,
+                heading: 105,
                 pitch: 0
               },
 			  //ID: 0,
