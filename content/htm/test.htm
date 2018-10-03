@@ -47,9 +47,10 @@
 	
     <script>
 	var panorama, panoatribute, txtFile, ancienpano=-1;var tempovalue = [
-	'{"ID":"0","link0": {"heading": 286,"description": "go1","pano": 1}}',//start
-	'{"ID":"1","link0": {"heading": 286,"description": "go2","pano": 2},"POPUP1":"EPSI <br><a href=http://epsi.fr target=_blank><img src=epsi.jpg></a>","V1":330,"V2":90,"mark1":{"X":11,"Y":-5,"name":"PC","cont":"Un PC"},"mark2":{"X":324,"Y":-1,"name":"Tableau","cont":"Un tableau"},"mark3":{"X":222,"Y":0,"name":"Exterieur","cont":"Accès a l\'exterieur du batiment"}}',
-	'{"ID":"2","link0": {"heading": 105,"description": "go1","pano": 1}}'
+	'{"ID":"0","name":"Start","link0": {"heading": 286,"description": "go1","pano": 1}}',//start
+	'{"ID":"1","name":"Pano1","link0": {"heading": 286,"description": "go2","pano": 2},"POPUP1":"EPSI <br><a href=http://epsi.fr target=_blank><img src=epsi.jpg></a>","V1":330,"V2":90,"mark1":{"X":11,"Y":-5,"name":"PC","cont":"Un PC"},"mark2":{"X":324,"Y":-1,"name":"Tableau","cont":"Un tableau"},"mark3":{"X":222,"Y":0,"name":"Exterieur","cont":"Accès a l\'exterieur du batiment"}}',
+	'{"ID":"2","name":"Pano2","link0": {"heading": 105,"description": "go1","pano": 1},"link1": {"heading": 286,"description": "go3","pano": 3}}',
+	'{"ID":"3","name":"Pano3","link0": {"heading": 105,"description": "go2","pano": 2}}'
 	];
 	
 function start()
@@ -64,13 +65,17 @@ function start()
 	//$(#button).click();
 	intervalId = setInterval(bip, 33);
 }
+
+var cache_oldPOV=270;
 function bip()
 {
-//var Width=document.body.clientWidth,Height=document.body.clientHeight,
-var correc=2;//Width/Height;
-//alert(Width+","+Height+","+correc);//x,y
+var correc=2;var recupPOV=document.getElementById("heading-cell").innerHTML;
+
+if(recupPOV!=cache_oldPOV || ancienpano!=panoatribute){
+if(ancienpano!=panoatribute){ancienpano=panoatribute;document.getElementById("marker1").style.visibility="hidden";document.getElementById("marker2").style.visibility="hidden";document.getElementById("marker3").style.visibility="hidden";}
+cache_oldPOV=recupPOV;
+
 //----------------------------------------------POPUP----------------------------------------------
-var recupPOV=document.getElementById("heading-cell").innerHTML;
 //if(recupPOV==undefined)document.getElementById("heading-cell").value;
 var obj = JSON.parse(tempovalue[panoatribute]); var calcV=obj.V1+obj.V2;
 //alert(calcV);
@@ -99,8 +104,7 @@ else{
 var recupFOV=document.getElementById("fov-cell").innerHTML,unP=100/recupFOV;
 //--------------------------------------------------mark1--------------------------------------------------
 if(recupFOV!="NaN"){
-if(ancienpano!=panoatribute){ancienpano=panoatribute;document.getElementById("marker1").style.visibility="hidden";document.getElementById("marker2").style.visibility="hidden";document.getElementById("marker3").style.visibility="hidden";}
-if(obj.mark1.X!=undefined){//GO_X
+if (typeof(obj.mark1.X) !== 'undefined' || variable !== null) {//if(obj.mark1.X!=undefined){//GO_X
 var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
   var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));var varX=0, varY=50,found=0,teststd=std,i=-1;
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
@@ -190,6 +194,7 @@ var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
 //--------------------------------------------------mark_end--------------------------------------------------
 }
 }
+}
 
 function markclick(markerid)
 {
@@ -248,8 +253,8 @@ function initPano() {
 			  }
 		else{
             for (var i in links) {
-              var row = document.createElement('tr');
-              linksTable.appendChild(row);
+              //var row = document.createElement('tr');
+              //linksTable.appendChild(row);
               var labelCell = document.createElement('td');
               labelCell.innerHTML = '<b>Link: ' + i + '</b>';
               var valueCell = document.createElement('td');
@@ -291,12 +296,13 @@ function getCustomPanorama(pano) {
 	   panoatribute=pano;//panorama.SetPano(panoatribute);
 	  	 txtFile = panoatribute+".txt";var str;
 		 str=tempovalue[panoatribute];
+		 var obj = JSON.parse(tempovalue[panoatribute]);
 		//alert(str);
 
 	return {
             location: {
               pano: panoatribute,
-              description: 'EPSI - '+panoatribute
+              description: 'EPSI - '+obj.name
             },
             links: manylinks(str),
             // The text for the copyright control.
