@@ -102,11 +102,12 @@ else{
 
 //mark POV
 var recupFOV=document.getElementById("fov-cell").innerHTML,unP=100/recupFOV;
+var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));
 //--------------------------------------------------mark1--------------------------------------------------
 if(recupFOV!="NaN"){
 if (typeof(obj.mark1.X) !== 'undefined' || variable !== null) {//if(obj.mark1.X!=undefined){//GO_X
 var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
-  var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));var varX=0, varY=50,found=0,teststd=std,i=-1;
+  var varX=0, varY=50,found=0,teststd=std,i=-1;
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
@@ -140,7 +141,7 @@ var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
 //--------------------------------------------------mark2--------------------------------------------------
 if(obj.mark2.X!=undefined){//GO_X
 var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
-  var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));var varX=0, varY=50,found=0,teststd=std,i=-1;
+  var varX=0, varY=50,found=0,teststd=std,i=-1;
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
@@ -173,7 +174,7 @@ var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
 //--------------------------------------------------mark3--------------------------------------------------
 if(obj.mark3.X!=undefined){//GO_X
 var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
-  var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));var varX=0, varY=50,found=0,teststd=std,i=-1;
+  var varX=0, varY=50,found=0,teststd=std,i=-1;
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
