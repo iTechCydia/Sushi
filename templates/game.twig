@@ -1,4 +1,5 @@
 {% extends 'container.twig' %}
+{% import 'macro.forms.twig' as form %}
 
 {% block container %}
     <h1 class="h2 text-center text-muted">EpsiQuizz</h1>
@@ -10,10 +11,19 @@
             <p>
                 Répondez correctement aux questions et obtenez votre score.
             </p>
-            <a href="/game/1" class="btn btn-primary">
-                <i class="fal fa-share"></i>
-                Jouer
-            </a>
+            <form action="/req/start" method="post">
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.text('pseudo', null, {prepend:{icon:'user'}, placeholder:'Pseudo', required: true}) }}
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fal fa-share"></i>
+                            Jouer
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}
