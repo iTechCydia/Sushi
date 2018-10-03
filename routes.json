@@ -11,7 +11,12 @@
         {
             "name": "map",
             "view": "map"
+        },
+        {
+            "name": "game",
+            "view": "game"
         }
+        
     ],
     "default": {
         "response": 404,
