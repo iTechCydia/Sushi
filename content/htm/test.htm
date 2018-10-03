@@ -18,7 +18,8 @@
     </style>
   </head>
  <body onload="start()">
- <div id="POPUP" style="visibility:hidden;position: absolute; transform: translate(-50%, -50%); z-index: 1000; color: white; font-size: 20px; left: 80%; top: 30%; background-color: rgba(0, 0, 0, 0.3); padding: 5px; border-radius: 3px; text-align: center;"></div>
+																															<!-- font-size: 20px; -->
+ <div id="POPUP" style="visibility:hidden;position: absolute; transform: translate(-50%, -50%); z-index: 1000; color: white; font-size: 12px; left: 80%; top: 30%; background-color: rgba(0, 0, 0, 0.3); padding: 5px; border-radius: 3px; text-align: center;"></div>
  <div id="map"></div>
 
   <div id="marker1" onclick="markclick(1);" onmouseover="document.getElementById('textmark1').style.visibility = 'visible'" onmouseleave="document.getElementById('textmark1').style.visibility = 'hidden'" style="visibility:hidden; background-color: rgb(184, 205, 54); width: 45px; height: 45px; line-height: 54px; border-radius: 22.5px; position: absolute; cursor: pointer; z-index: 1; display: block; left: 50%; top: 50%; transform: translate(50%, 50%);">
@@ -48,7 +49,7 @@
     <script>
 	var panorama, panoatribute, txtFile, ancienpano=-1;var tempovalue = [
 	'{"ID":"0","name":"Start","link0": {"heading": 105,"description": "go1","pano": 1}}',//start
-	'{"ID":"1","name":"Pano1","link0": {"heading": 105,"description": "go2","pano": 2},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>Capitale Régionale du Languedoc Roussillon, Montpellier séduit par la douceur de son climat, les charmes de son architecture et sa vie culturelle très dense. C\’est aussi un vivier de start-up et d\’acteurs du numérique qui en font une ville connectée dynamique.</td><td><a href=http://epsi.fr target=_blank><img src=/content/img/epsi.jpg></a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Parking du batiment des Apoticaires, Les élèves n\'on pas le droit de ce garer ici !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Un FoodTruck"}}',
+	'{"ID":"1","name":"Batiment_Apoticaire","link0": {"heading": 105,"description": "go2","pano": 2},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>Capitale Régionale du Languedoc Roussillon, Montpellier séduit par la douceur de son climat, les charmes de son architecture et sa vie culturelle très dense. C\’est aussi un vivier de start-up et d\’acteurs du numérique qui en font une ville connectée dynamique.</td><td><a href=http://epsi.fr target=_blank><img src=/content/img/epsi.jpg></a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Parking du batiment des Apoticaires, Les élèves n\'on pas le droit de ce garer ici !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Un FoodTruck"}}',
 	'{"ID":"2","name":"Pano2","link0": {"heading": 286,"description": "go1","pano": 1}}'
 	];
 	
