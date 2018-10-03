@@ -110,7 +110,9 @@ var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
-	teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i;found=1;break;}i++;
+		teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i;
+		if(varX<33)varX+=2;if(varX<50)varX+=4;if(varX>50)varX-=2;if(varX>66)varX-=1;found=1;break;}
+		i++;
   }
   if(varX>96){found=0;}
   if(found==1)//GO_Y
@@ -119,7 +121,9 @@ var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
 	var teststf=parseInt(parseInt(recupPitch)-parseInt(recupFOV)/(correc));i=-1;
 	while(teststd!=teststf)
 	{
-		teststd--;if(teststd==dY){varY=unP*i;found=2;break;}i++;
+		teststd--;if(teststd==dY){varY=unP*i;
+		if(varX<33)varX-=3;if(varY<50)varY-=4;if(varY>50)varY+=1;if(varY>66)varY+=2;found=2;break;}
+		i++;
 	}
 	if(Math.abs(recupPitch)-Math.abs(dY)>25){varY=0;found=1;}
   }
@@ -140,7 +144,9 @@ var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
-	teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i; found=1;break;}i++;
+	teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i;
+	if(varX<33)varX+=2;if(varX<50)varX+=4;if(varX>50)varX-=2;if(varX>66)varX-=1;found=1;break;}
+	i++;
   }
   if(varX>96){found=0;}
   if(found==1)//GO_Y
@@ -149,7 +155,9 @@ var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
 	var teststf=parseInt(parseInt(recupPitch)-parseInt(recupFOV)/(correc));i=-1;
 	while(teststd!=teststf)
 	{
-		teststd--;if(teststd==dY){varY=unP*i;found=2;break;}i++;
+		teststd--;if(teststd==dY){varY=unP*i;
+		if(varX<33)varX-=3;if(varY<50)varY-=4;if(varY>50)varY+=1;if(varY>66)varY+=2;found=2;break;}
+		i++;
 	}
 	if(Math.abs(recupPitch)-Math.abs(dY)>25){varY=0;found=1;}
   }
@@ -169,7 +177,9 @@ var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
   while(teststd!=stf)
   {
-	teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i; found=1;break;}i++;
+	teststd++;if(teststd>360)teststd=0;if(teststd==dX){varX=unP*i;
+	if(varX<33)varX+=2;if(varX<50)varX+=4;if(varX>50)varX-=2;if(varX>66)varX-=1;found=1;break;}
+	i++;
   }
   if(varX>96){found=0;}
   if(found==1)//GO_Y
@@ -178,7 +188,9 @@ var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
 	var teststf=parseInt(parseInt(recupPitch)-parseInt(recupFOV)/(correc));i=-1;
 	while(teststd!=teststf)
 	{
-		teststd--;if(teststd==dY){varY=unP*i;found=2;break;}i++;
+		teststd--;if(teststd==dY){varY=unP*i;
+		if(varX<33)varX-=3;if(varY<50)varY-=4;if(varY>50)varY+=1;if(varY>66)varY+=2;found=2;break;}
+		i++;
 	}
 	if(Math.abs(recupPitch)-Math.abs(dY)>25){varY=0;found=1;}
   }
