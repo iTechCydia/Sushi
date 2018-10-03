@@ -23,44 +23,22 @@
             "name": "game",
             "routes": [
                 {
-                    "name": "1",
-                    "view": "game-1"
-                },
+                    "name": "{question}",
+                    "view": "question"
+                }
+            ]
+        },
+        {
+            "name": "req",
+            "sections": [
                 {
-                    "name": "2",
-                    "view": "game-2"
-                },
-                {
-                    "name": "3",
-                    "view": "game-3"
-                },
-                {
-                    "name": "4",
-                    "view": "game-4"
-                },
-                {
-                    "name": "5",
-                    "view": "game-5"
-                },
-                {
-                    "name": "6",
-                    "view": "game-6"
-                },
-                {
-                    "name": "7",
-                    "view": "game-7"
-                },
-                {
-                    "name": "8",
-                    "view": "game-8"
-                },
-                {
-                    "name": "9",
-                    "view": "game-9"
-                },
-                {
-                    "name": "10",
-                    "view": "game-10"
+                    "name": "post",
+                    "routes": [
+                        {
+                            "name": "question",
+                            "controller": "Questions.Register"
+                        }
+                    ]
                 }
             ]
         }
