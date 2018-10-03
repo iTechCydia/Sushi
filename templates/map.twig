@@ -1,12 +1,21 @@
 {% extends 'container-fluid.twig' %}
 
 {% block container %}
-<iframe src="/content/htm/test.htm" height=93% width=93%>
+<iframe src="/content/htm/test.htm" height=200px width=100% id="idiframe">
   <p>Your browser does not support iframes.</p>
 </iframe>
 {% endblock %}
 {% block scripts %}
     <script type="text/javascript">
-	//code ici
+	function resize() {
+		$('#idiframe').css('height', ($(window).height() - 80) + 'px');
+	}
+	$(window).on('resize', function (e) {
+		resize();
+	});
+	
+	$(document).ready(function () {
+		resize();
+	});
     </script>
 {% endblock %}
