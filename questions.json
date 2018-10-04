@@ -1,0 +1,20 @@
+{
+    "questions": [
+        {
+            "question": "blabla",
+            "reponses": [
+                ["reponse 1", true],
+                ["reponse 2", false],
+                ["reponse 3", false]
+            ]
+        },
+        {
+            "question": "blabla",
+            "reponses": [
+                ["reponse 1", false],
+                ["reponse 2", false],
+                ["reponse 3", true]
+            ]
+        }
+    ]
+}
