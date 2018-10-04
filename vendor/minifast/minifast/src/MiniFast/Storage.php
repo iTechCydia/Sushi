@@ -27,7 +27,7 @@ class Storage extends Singleton
             return $this->storage[$key];
         }
 
-        return false;
+        return null;
     }
 
     /**
