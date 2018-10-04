@@ -13,17 +13,19 @@ class Finish extends Register
             $reponses = $_SESSION['user']['question'];
             $score = 0;
             
-            if (sizeof($reponses) == sizeof($questions)) {
+            if (sizeof($reponses) == sizeof($questions['questions'])) {
                 foreach ($reponses as $key => $reponse) {
-                    if ($questions[$key]['reponses'][$reponse][1]) {
+                    if ($questions['questions'][$key]['reponses'][$reponse][1]) {
                         $score++;
                     }
                 }
                 
                 $leaderboard[] = [
                     'pseudo' => $_SESSION['user']['pseudo'],
-                    'score' => $score;
+                    'score' => $score
                 ];
+                
+                file_put_contents(__DIR__ . '/../../resultats.json', json_encode($leaderboard));
                 
                 header('Location: /game');
                 exit;
