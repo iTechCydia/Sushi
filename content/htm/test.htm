@@ -49,9 +49,9 @@
     <script>
 	var panorama, panoatribute, txtFile, ancienpano=-1;var tempovalue = [
 	'{"ID":"0","name":"Start","link0": {"heading": 105,"description": "go1","pano": 1}}',//start
-	'{"ID":"1","name":"Batiment_Apothicaire","link0": {"heading": 98,"description": "go2","pano": 2},"link1": {"heading": 200,"description": "go7","pano": 7},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>Capitale Régionale du Languedoc Roussillon, Montpellier séduit par la douceur de son climat, les charmes de son architecture et sa vie culturelle très dense. C\’est aussi un vivier de start-up et d\’acteurs du numérique qui en font une ville connectée dynamique.</td><td><a href=http://epsi.fr target=_blank><img src=/content/img/epsi.jpg></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=mailto:info@montpellier-epsi.fr target=_top>info@montpellier-epsi.fr</a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Parking du batiment des Apothicaires, Les élèves n\'on pas le droit de ce garer ici !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Food truck tous les midis sur la partie campus"}}',
+	'{"ID":"1","name":"Batiment_Apothicaire","link0": {"heading": 98,"description": "go2","pano": 2},"link1": {"heading": 200,"description": "go7","pano": 7},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>Capitale Régionale du Languedoc Roussillon, Montpellier séduit par la douceur de son climat, les charmes de son architecture et sa vie culturelle très dense. C\’est aussi un vivier de start-up et d\’acteurs du numérique qui en font une ville connectée dynamique.</td><td><a href=http://www.epsi.fr/campus/campus-de-montpellier/ target=_blank><img src=/content/img/epsi.jpg></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=mailto:info@montpellier-epsi.fr target=_top>info@montpellier-epsi.fr</a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Parking du batiment des Apothicaires, Les élèves n\'on pas le droit de ce garer ici !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Food truck tous les midis sur la partie campus"}}',
 	'{"ID":"2","name":"Entrée_Apothicaire","link0": {"heading": 292,"description": "go1","pano": 1},"link1": {"heading": 107,"description": "go3","pano": 3},"link2": {"heading": 36,"description": "go4","pano": 4}}',
-	'{"ID":"3","name":"Centre_Apothicaire","link0": {"heading": 290,"description": "go2","pano": 2},"link1": {"heading": 230,"description": "go5","pano": 5}}',
+	'{"ID":"3","name":"Centre_Apothicaire","link0": {"heading": 290,"description": "go2","pano": 2},"link1": {"heading": 230,"description": "go5","pano": 5},"POPUP1":"Presentation de WIS Montpellier<br><br><table><tr><td>(Web International School) est une école Web et digital business qui propose une formation web et digital business accessible après le Bac ou en admission parallèle. WIS délivre 2 formations : le programme Bachelor « web et digital business » (Bac+3) et le programme Expertise Digital Business (Bac+5).</td><td><a href=http://www.wis-ecoles.com/campus/campus-de-montpellier/ target=_blank><img src=/content/img/WIS.png></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=http://www.my-admission.com/formulaire.aspx?marque=epsimontpellier&id=3443 target=_top>Contact</a></td></tr></table>","V1":110,"V2":195,"mark1":{"X":28,"Y":-1,"name":"MyDil","cont":"Laboratoire MyDil"}}',
 	'{"ID":"4","name":"étage_Administration","link0": {"heading": 45,"description": "go2","pano": 2}}',
 	'{"ID":"5","name":"Couloir_Apothicaire1","link0": {"heading": 50,"description": "go3","pano": 3},"link1": {"heading": 300,"description": "go6","pano": 6}}',
 	'{"ID":"6","name":"Couloir_Apothicaire2","link0": {"heading": 109,"description": "go5","pano": 5}}',
@@ -79,13 +79,14 @@ var correc=2;var recupPOV=document.getElementById("heading-cell").innerHTML;
 
 
 if(recupPOV!=cache_oldPOV || ancienpano!=panoatribute){
-if(ancienpano!=panoatribute){ancienpano=panoatribute;document.getElementById("marker1").style.visibility="hidden";document.getElementById("marker2").style.visibility="hidden";document.getElementById("marker3").style.visibility="hidden";}
+if(ancienpano!=panoatribute){ancienpano=panoatribute;document.getElementById("POPUP").style.visibility="hidden";document.getElementById("marker1").style.visibility="hidden";document.getElementById("marker2").style.visibility="hidden";document.getElementById("marker3").style.visibility="hidden";}
 cache_oldPOV=recupPOV;
 
 //----------------------------------------------POPUP----------------------------------------------
 //if(recupPOV==undefined)document.getElementById("heading-cell").value;
 var obj = JSON.parse(tempovalue[panoatribute]); var calcV=obj.V1+obj.V2;
 //alert(calcV);
+if(obj.V1!=obj.V2){
 if(obj.V1+obj.V2>360){
 	var V2coor=obj.V1+obj.V2-360;
 	if((recupPOV>=obj.V1 && recupPOV<=360)||(recupPOV>=0 && recupPOV<=V2coor)){
@@ -107,6 +108,7 @@ else{
 	}
 	else {if(document.getElementById("POPUP").style.visibility=="visible")document.getElementById("POPUP").style.visibility="hidden";}
 }
+}
 //----------------------------------------------POPUP_end----------------------------------------------
 
 //mark POV
@@ -114,7 +116,8 @@ var recupFOV=document.getElementById("fov-cell").innerHTML,unP=100/recupFOV;
 var std=parseInt(recupPOV-recupFOV/(correc));var stf=parseInt(parseInt(recupPOV)+parseInt(recupFOV)/(correc));
 //--------------------------------------------------mark1--------------------------------------------------
 if(recupFOV!="NaN"){
-if (typeof(obj.mark1.X) !== 'undefined' || variable !== null) {//if(obj.mark1.X!=undefined){//GO_X
+//if (typeof(obj.mark1.X) !== 'undefined' || variable !== null) {
+if(obj.mark1.X!=undefined){//GO_X
 var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
   var varX=0, varY=50,found=0,teststd=std,i=-1;
   if(std<0){stf+=360;}if(stf>360){stf-=360;}
