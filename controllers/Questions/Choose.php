@@ -24,6 +24,9 @@ class Choose
             $storage->setAttribute('question', $json['questions'][intval($index) - 1]['question']);
             $storage->setAttribute('reponses', $rep);
             $storage->setAttribute('index', $index);
+        } else {
+            header('Location: /game');
+            exit;
         }
     }
 }
