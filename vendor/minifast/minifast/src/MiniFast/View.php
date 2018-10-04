@@ -28,9 +28,9 @@ class View
         } else {
             $this->template = $this->twig->load($template . '.twig');
         }
-        
+
         if ($storage->isset('route.storage')) {
-            echo $this->template->render($storage->getAttribute('route.storage'));
+            echo $this->template->render($storage->getAttributes());
         } else {
             echo $this->template->render([]);
         }
