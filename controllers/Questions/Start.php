@@ -15,8 +15,8 @@ class Start
                 session_start();
             }
             
-            $_SESSION['user'] = htmlspecialchars($_POST['pseudo']);
             $_SESSION['user'] = [
+                'pseudo' => htmlspecialchars($_POST['pseudo']),
                 'question' => []
             ];
             
