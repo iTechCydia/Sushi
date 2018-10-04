@@ -15,8 +15,12 @@
         {
             "name": "game",
             "view": "game"
+        },
+        {
+            "name": "vieEtudiante",
+            "view": "vieEtudiante"
         }
-        
+
     ],
     "sections": [
         {
