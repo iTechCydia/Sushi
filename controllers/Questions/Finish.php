@@ -20,10 +20,7 @@ class Finish extends Register
                     }
                 }
                 
-                $leaderboard[] = [
-                    'pseudo' => $_SESSION['user']['pseudo'],
-                    'score' => $score
-                ];
+                $leaderboard[$_SESSION['user']['pseudo']] = $score;
                 
                 file_put_contents(__DIR__ . '/../../resultats.json', json_encode($leaderboard));
                 
