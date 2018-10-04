@@ -13,10 +13,16 @@ class Choose
         if (isset($_SESSION['user'])) {
             $container = new Container();
             $storage = $container->getStorage();
-            $index = $storage->getAttribute('route.storage');
-            var_dump($index);
-            $storage->setAttribute('question', $json['question'][$index]['question']);
-            $storage->setAttribute('responses', $json['question'][$index]['reponses']);
+            
+            $index = $storage->getAttribute('route.storage')['question'];
+            
+            $rep = [];
+            foreach ($json['questions'][$index - 1]['reponses'] as $reponses) {
+                $rep[] = $reponses[0];
+            }
+            
+            $storage->setAttribute('question', $json['questions'][intval($index) - 1]['question']);
+            $storage->setAttribute('reponses', $rep);
         }
     }
 }
