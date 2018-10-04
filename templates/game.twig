@@ -1,6 +1,8 @@
 {% extends 'container.twig' %}
+{% import 'macro.forms.twig' as form %}
 
 {% block container %}
+<<<<<<< HEAD
 <h1 class="h2 text-center text-muted">EpsiQuizz</h1>
 <div class="card bg-light mb-3">
     <div class="card-body text-center">
@@ -49,6 +51,30 @@
                     
                 </tbody>
             </table>
+=======
+    <h1 class="h2 text-center text-muted">EpsiQuizz</h1>
+    <div class="card bg-light">       
+        <div class="card-body text-center">
+            <p>
+                Bienvenue sur le quizz de l'EPSI Montpellier !
+            </p>
+            <p>
+                Répondez correctement aux questions et obtenez votre score.
+            </p>
+            <form action="/req/start" method="post">
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.text('pseudo', null, {prepend:{icon:'user'}, placeholder:'Pseudo', required: true}) }}
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fal fa-share"></i>
+                            Jouer
+                        </button>
+                    </div>
+                </div>
+            </form>
+>>>>>>> 27118d06a3ef768f1f2c8d28313c6cfe35f46555
         </div>
     </div>
 

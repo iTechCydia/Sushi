@@ -40,6 +40,12 @@
                         }
                     ]
                 }
+            ],
+            "routes": [
+                {
+                    "name": "start-game",
+                    "controller": "Questions.Start"
+                }
             ]
         }
     ],
