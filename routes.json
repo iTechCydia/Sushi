@@ -24,6 +24,7 @@
             "routes": [
                 {
                     "name": "{question}",
+                    "controller": "Questions.Choose",
                     "view": "question"
                 }
             ]
@@ -39,12 +40,15 @@
                             "controller": "Questions.Register"
                         }
                     ]
-                }
-            ],
-            "routes": [
+                },
                 {
-                    "name": "start-game",
-                    "controller": "Questions.Start"
+                    "name": "start",
+                    "routes": [
+                        {
+                            "name": "game",
+                            "controller": "Questions.Start"
+                        }
+                    ]
                 }
             ]
         }
