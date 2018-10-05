@@ -35,29 +35,16 @@
                             <th class="border-top-0">#</th>
                             <th class="border-top-0">First</th>
                             <th class="border-top-0">Last</th>
-                            <th class="border-top-0">Handle</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                        </tr>
-
+                        {% for pseudo, score in leaderboard %}
+                            <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ pseudo }}</td>
+                                <td>{{ score }}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

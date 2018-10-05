@@ -23,11 +23,7 @@ class Storage extends Singleton
      */
     public function getAttribute($key)
     {
-        if (isset($this->storage[$key])) {
-            return $this->storage[$key];
-        }
-
-        return null;
+        return $this->storage[$key];
     }
 
     /**

@@ -1,0 +1,20 @@
+{% extends 'container.twig' %}
+{% import 'macro.forms.twig' as form %}
+
+{% block container %}
+    <h1>{{ question }} : </h1>
+    <div class="card bg-light">
+        <div class="card-body">
+            <form action="/req/post/question" method="post">
+                {{ form.radio('reponse', reponses, null) }}
+                <input type="hidden" name="index" value="{{ index }}">
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fal fa-save"></i>
+                        Envoyer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

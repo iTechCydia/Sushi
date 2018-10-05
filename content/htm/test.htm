@@ -19,7 +19,7 @@
   </head>
  <body onload="start()">
 																															<!-- font-size: 20px; -->
- <div id="POPUP" style="visibility:hidden;position: absolute; transform: translate(-50%, -50%); z-index: 1000; color: white; font-size: 16px; left: 80%; top: 30%; background-color: rgba(0, 0, 0, 0.3); padding: 5px; border-radius: 3px; text-align: center;"></div>
+ <div id="POPUP" style="visibility:hidden;position: absolute; transform: translate(-50%, -50%); z-index: 1000; color: white; font-size: 14px; left: 80%; top: 30%; background-color: rgba(0, 0, 0, 0.3); padding: 5px; border-radius: 3px; text-align: center;"></div>
  <div id="map"></div>
 
   <div id="marker1" onclick="markclick(1);" onmouseover="document.getElementById('textmark1').style.visibility = 'visible'" onmouseleave="document.getElementById('textmark1').style.visibility = 'hidden'" style="visibility:hidden; background-color: rgb(184, 205, 54); width: 45px; height: 45px; line-height: 54px; border-radius: 22.5px; position: absolute; cursor: pointer; z-index: 1; display: block; left: 50%; top: 50%; transform: translate(50%, 50%);">
@@ -31,7 +31,7 @@
   <div id="marker3" onclick="markclick(3);" onmouseover="document.getElementById('textmark3').style.visibility = 'visible'" onmouseleave="document.getElementById('textmark3').style.visibility = 'hidden'" style="visibility:hidden; background-color: rgb(184, 205, 54); width: 45px; height: 45px; line-height: 54px; border-radius: 22.5px; position: absolute; cursor: pointer; z-index: 1; display: block; left: 50%; top: 50%; transform: translate(50%, 50%);">
   <i id="textmark3" style="visibility:hidden; font-size: 20px; text-align: center; color: rgb(255, 255, 255); padding: 0px; pointer-events: none;">3</i></div> 
  
-   <div id="floating-panel" style="visibility:visible;">
+   <div id="floating-panel" style="visibility:hidden;">
     <table>
         <td><b>Zoom</b></td><td id="zoom-cell" value=1>1</td>
         <td><b>POV Heading</b></td><td id="heading-cell" value=105>105</td>
@@ -50,9 +50,9 @@
 	var panorama, panoatribute, txtFile, ancienpano=-1;var tempovalue = [
 	'{"ID":"0","name":"Start","link0": {"heading": 92,"description": "go1","pano": 1}}',//start
 	//'{"ID":"1","name":"Batiment_Apothicaire","link0": {"heading": 98,"description": "go2","pano": 2},"link1": {"heading": 200,"description": "go7","pano": 7},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>L\’EPSI est une école informatique multi campus, présente à Arras, Bordeaux, Brest, Grenoble, Lille, Lyon, Montpellier, Nantes et Paris. L\’EPSI se positionne sur le segment des Ecoles d\’ingénierie informatique post bac et sans prépa. Exigence, accompagnement dans l\’effort, humanité et convivialité sont les forces de l\’école informatique EPSI.</td><td><a href=http://www.epsi.fr/campus/campus-de-montpellier/ target=_blank><img src=/content/img/epsi.jpg></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=mailto:info@montpellier-epsi.fr target=_top>info@montpellier-epsi.fr</a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Le parking n’est pas réservé qu’à l’école, les bâtiments autour aussi ont leur places. Cependants, celles réservées pour l’epsi servent aux profs : les étudiants n’ont pas le droit de s’y garer !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Chaque jour, en face du bâtiment, un foodtruck est présent. Voyage culinaire chaque jour !"},"mark2":{"X":167,"Y":-2,"name":"Info","cont":"Ne soit pas dégoûté d\'avoir quitté la matrice :)"}}',
-	'{"ID":"1","name":"Batiment_Apothicaire","link0": {"heading": 98,"description": "go2","pano": 2},"link1": {"heading": 200,"description": "go7","pano": 7},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>L\’EPSI est une école informatique multi campus, présente à Arras, Bordeaux, Brest, Grenoble, Lille, Lyon, Montpellier, Nantes et Paris. L\’EPSI se positionne sur le segment des Ecoles d\’ingénierie informatique post bac et sans prépa. Exigence, accompagnement dans l\’effort, humanité et convivialité sont les forces de l\’école informatique EPSI.</td><td><a href=http://www.epsi.fr/campus/campus-de-montpellier/ target=_blank><img src=/content/img/epsi.jpg></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=mailto:info@montpellier-epsi.fr target=_top>info@montpellier-epsi.fr</a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Le parking n’est pas réservé qu’à l’école, les bâtiments autour aussi ont leur places. Cependants, celles réservées pour l’epsi servent aux profs : les étudiants n’ont pas le droit de s’y garer !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Chaque jour, en face du bâtiment, un foodtruck est présent. Voyage culinaire chaque jour !"}}',
-	'{"ID":"2","name":"Entrée_Apothicaire","link0": {"heading": 292,"description": "go1","pano": 1},"link1": {"heading": 107,"description": "go3","pano": 3},"link2": {"heading": 36,"description": "go4","pano": 4},"POPUP1":"Les partenaires EPSI<br><br><table><tr><td>10 000 entreprises partenaires : résolument tournée vers le monde de l’entreprise, l’EPSI entretient des liens forts avec de nombreuses entreprises régionales et nationales. On peux citer par exemple: DELL, Microsoft, IBM GFI Informatique, La Poste, ...</a></td><td><img src=/content/img/partenaire.png></td></tr><tr><td  colspan=2>Différents types de contrats en alternance sont possibles à Montpellier:<br>-Le contrat de professionnalisation<br>-Le contrat de partenariat école / entreprise</td></tr></table>","V1":302,"V2":150,"mark1":{"X":347,"Y":-5,"name":"Secrétariat","cont":"C\'est ici qu\'il faut aller pour toutes les tâches administratives."}}',
-	'{"ID":"3","name":"Centre_Apothicaire","link0": {"heading": 290,"description": "go2","pano": 2},"link1": {"heading": 230,"description": "go5","pano": 5},"POPUP1":"Presentation de WIS Montpellier<br><br><table><tr><td>(Web International School) est une école Web et digital business qui propose une formation web et digital business accessible après le Bac ou en admission parallèle. WIS délivre 2 formations : le programme Bachelor « web et digital business » (Bac+3) et le programme Expertise Digital Business (Bac+5).</td><td><a href=http://www.wis-ecoles.com/campus/campus-de-montpellier/ target=_blank><img src=/content/img/WIS.png></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=http://www.my-admission.com/formulaire.aspx?marque=epsimontpellier&id=3443 target=_top>Contact</a></td></tr></table>","V1":110,"V2":195,"mark1":{"X":28,"Y":-1,"name":"MyDil","cont":"Un lieu où le savoir à la demande est à la portée de tous nos élèves et où le matériel modulable et high-tech est mis au service de l’expérimentation pédagogique. Échanger, développer, accélérer, co-construire, favoriser l’émergence de projets innovants par un lieu de collaboration et de confrontation unique entre étudiants :Espace, laboratoire dédié au codage, à l’innovation technologique."},"mark2":{"X":207,"Y":-2,"name":"Cafétéria","cont":"Lieu où les élèves peuvent réchauffer leur plats grâce à 4 magnifiques micro-ondes et manger sur des tables parfaitement ergonomiques. Ils ont aussi à leur disposition un distributeur de café (indispensable dans le milieu de l\'informatique) et un distributeur de malbouffe ..., non pardon, de nourriture."}}',
+	'{"ID":"1","name":"Batiment_Apothicaire","link0": {"heading": 98,"description": "go2","pano": 2},"link1": {"heading": 200,"description": "go7","pano": 7},"POPUP1":"Bienvenue à EPSI Montpellier<br><br><table><tr><td>L\’EPSI est une école informatique multi campus, présente à Arras, Bordeaux, Brest, Grenoble, Lille, Lyon, Montpellier, Nantes et Paris. L\’EPSI se positionne sur le segment des Ecoles d\’ingénierie informatique post bac et sans prépa. Exigence, accompagnement dans l\’effort, humanité et convivialité sont les forces de l\’école informatique EPSI.</td><td><a href=http://www.epsi.fr/campus/campus-de-montpellier/ target=_blank><img id=\'imgpopup\' src=/content/img/epsi.jpg></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=mailto:info@montpellier-epsi.fr target=_top>info@montpellier-epsi.fr</a></td></tr></table>","V1":60,"V2":170,"mark1":{"X":20,"Y":-6,"name":"Parking","cont":"Le parking n’est pas réservé qu’à l’école, les bâtiments autour aussi ont leur places. Cependants, celles réservées pour l’epsi servent aux profs : les étudiants n’ont pas le droit de s’y garer !"},"mark2":{"X":167,"Y":-2,"name":"FoodTruck","cont":"Chaque jour, en face du bâtiment, un foodtruck est présent. Voyage culinaire chaque jour !"}}',
+	'{"ID":"2","name":"Entrée_Apothicaire","link0": {"heading": 292,"description": "go1","pano": 1},"link1": {"heading": 107,"description": "go3","pano": 3},"link2": {"heading": 36,"description": "go4","pano": 4},"POPUP1":"Les partenaires EPSI<br><br><table><tr><td>10 000 entreprises partenaires : résolument tournée vers le monde de l’entreprise, l’EPSI entretient des liens forts avec de nombreuses entreprises régionales et nationales. On peux citer par exemple: DELL, Microsoft, IBM GFI Informatique, La Poste, ...</a></td><td><img id=\'imgpopup\' src=/content/img/partenaire.png></td></tr><tr><td  colspan=2>Différents types de contrats en alternance sont possibles à Montpellier:<br>-Le contrat de professionnalisation<br>-Le contrat de partenariat école / entreprise</td></tr></table>","V1":302,"V2":150,"mark1":{"X":347,"Y":-5,"name":"Secrétariat","cont":"C\'est ici qu\'il faut aller pour toutes les tâches administratives."}}',
+	'{"ID":"3","name":"Centre_Apothicaire","link0": {"heading": 290,"description": "go2","pano": 2},"link1": {"heading": 230,"description": "go5","pano": 5},"POPUP1":"Presentation de WIS Montpellier<br><br><table><tr><td>(Web International School) est une école Web et digital business qui propose une formation web et digital business accessible après le Bac ou en admission parallèle. WIS délivre 2 formations : le programme Bachelor « web et digital business » (Bac+3) et le programme Expertise Digital Business (Bac+5).</td><td><a href=http://www.wis-ecoles.com/campus/campus-de-montpellier/ target=_blank><img id=\'imgpopup\' src=/content/img/WIS.png></a></td></tr><tr><td  colspan=2>437 avenue des Apothicaires 34090 Montpellier<br>Tél : 04 67 04 20 01<br><a href=http://www.my-admission.com/formulaire.aspx?marque=epsimontpellier&id=3443 target=_top>Contact</a></td></tr></table>","V1":110,"V2":195,"mark1":{"X":28,"Y":-1,"name":"MyDil","cont":"Un lieu où le savoir à la demande est à la portée de tous nos élèves et où le matériel modulable et high-tech est mis au service de l’expérimentation pédagogique. Échanger, développer, accélérer, co-construire, favoriser l’émergence de projets innovants par un lieu de collaboration et de confrontation unique entre étudiants :Espace, laboratoire dédié au codage, à l’innovation technologique."},"mark2":{"X":207,"Y":-2,"name":"Cafétéria","cont":"Lieu où les élèves peuvent réchauffer leur plats grâce à 4 magnifiques micro-ondes et manger sur des tables parfaitement ergonomiques. Ils ont aussi à leur disposition un distributeur de café (indispensable dans le milieu de l\'informatique) et un distributeur de malbouffe ..., non pardon, de nourriture."}}',
 	'{"ID":"4","name":"étage_Administration","link0": {"heading": 45,"description": "go2","pano": 2},"mark1":{"X":270,"Y":-10,"name":"Bureaux_Administratifs","cont":"Bureaux des Relation entreprise, Responsable pédagogique, est de la Direction."},"mark2":{"X":138,"Y":-4,"name":"Couloir_Gauche","cont":"Bibliothèque, Salle des profs."}}',
 	'{"ID":"5","name":"Couloir_Apothicaire1","link0": {"heading": 50,"description": "go3","pano": 3},"link1": {"heading": 300,"description": "go6","pano": 6},"mark1":{"X":136,"Y":1,"name":"Salle_3","cont":"la plus grande du bâtiment des Apothicaires."}}',
 	'{"ID":"6","name":"Couloir_Apothicaire2","link0": {"heading": 109,"description": "go5","pano": 5}}',
@@ -69,6 +69,13 @@ function start()
 	document.getElementsByClassName("dismissButton")[0].click();
 	//$(.dismissButton).each(function(){$(this).trigger('click');});
 	//$(#button).click();
+	
+	//if(stristr(navigator.userAgent, 'Linux'))document.getElementById("POPUP").style.fontSize="8px";
+		//if(navigator.userAgent.indexOf('Windows')>0)
+			//if(navigator.userAgent.indexOf('Linux')>0)
+		//{document.getElementById("POPUP").style.fontSize="8px";
+		//document.getElementById("imgpopup").style.height="50%";document.getElementById("imgpopup").style.width="50%";}
+	
 	intervalId = setInterval(bip, 33);//33
 }
 
@@ -96,6 +103,11 @@ if(obj.V1+obj.V2>360){
 		document.getElementById("POPUP").style.visibility="visible";
 		//var sizetxtpopup=(document.body.clientHeight*document.body.clientWidth)/125000;
 		//document.getElementById("POPUP").style.fontSize = parseInt(sizetxtpopup).toString()+"px";
+		
+		//if(navigator.userAgent.indexOf('Windows')>0)
+		if(navigator.userAgent.indexOf('Linux')>0)
+		{document.getElementById("POPUP").style.fontSize="8px";
+		document.getElementById("imgpopup").style.height="33%";document.getElementById("imgpopup").style.width="500%";}
 		}
 	}
 	else {if(document.getElementById("POPUP").style.visibility=="visible")document.getElementById("POPUP").style.visibility="hidden";}
@@ -105,6 +117,11 @@ else{
 	if(document.getElementById("POPUP").style.visibility=="hidden"){
 		document.getElementById("POPUP").innerHTML=obj.POPUP1;
 		document.getElementById("POPUP").style.visibility="visible";
+		
+		//if(navigator.userAgent.indexOf('Windows')>0)
+		if(navigator.userAgent.indexOf('Linux')>0)
+		{document.getElementById("POPUP").style.fontSize="8px";
+		document.getElementById("imgpopup").style.height="33%";document.getElementById("imgpopup").style.width="500%";}
 		}
 	}
 	else {if(document.getElementById("POPUP").style.visibility=="visible")document.getElementById("POPUP").style.visibility="hidden";}
@@ -150,8 +167,8 @@ var dX=obj.mark1.X, dY=obj.mark1.Y, textmarker=obj.mark1.name;//VAL1
 	//textmarker=varX+","+varY;
 	document.getElementById("textmark1").innerHTML=textmarker;//textmarker
    }
-   else document.getElementById("marker1").style.visibility="hidden";
-}else document.getElementById("marker1").style.visibility="hidden";
+   else {document.getElementById("marker1").style.visibility="hidden";document.getElementById("textmark1").style.visibility="hidden";}
+}else {document.getElementById("marker1").style.visibility="hidden";document.getElementById("textmark1").style.visibility="hidden";}
 //--------------------------------------------------mark2--------------------------------------------------
 if(obj.mark2.X!=undefined){//GO_X
 var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
@@ -184,8 +201,8 @@ var dX=obj.mark2.X, dY=obj.mark2.Y, textmarker=obj.mark2.name;//VAL2
 	//textmarker=varX+","+varY;
 	document.getElementById("textmark2").innerHTML=textmarker;//textmarker
    }
-   else document.getElementById("marker2").style.visibility="hidden";
-}else document.getElementById("marker2").style.visibility="hidden";
+   else {document.getElementById("marker2").style.visibility="hidden";document.getElementById("textmark2").style.visibility="hidden";}
+}else {document.getElementById("marker2").style.visibility="hidden";document.getElementById("textmark2").style.visibility="hidden";}
 //--------------------------------------------------mark3--------------------------------------------------
 if(obj.mark3.X!=undefined){//GO_X
 var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
@@ -218,8 +235,8 @@ var dX=obj.mark3.X, dY=obj.mark3.Y, textmarker=obj.mark3.name;//VAL3
 	//textmarker=varX+","+varY;
 	document.getElementById("textmark3").innerHTML=textmarker;//textmarker
    }
-   else document.getElementById("marker3").style.visibility="hidden";
-}else document.getElementById("marker3").style.visibility="hidden";
+   else {document.getElementById("marker3").style.visibility="hidden";document.getElementById("textmark3").style.visibility="hidden";}
+}else {document.getElementById("marker3").style.visibility="hidden";document.getElementById("textmark3").style.visibility="hidden";}
 //--------------------------------------------------mark_end--------------------------------------------------
 }
 }

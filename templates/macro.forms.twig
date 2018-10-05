@@ -176,7 +176,7 @@
 {% macro radio(name, values, value, attributes) %}
     {% for key, label in values %}
         <div class="custom-control custom-radio{% if attributes.inline %} custom-control-inline{% endif %}">
-            <input type="radio" class="custom-control-input" name="{{ name }}" value="{{ key }}"{% if value == key %} checked="checked"{% endif %}{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name~'-'~key}}"{% endif %}>
+            <input type="radio" class="custom-control-input" name="{{ name }}" value="{{ key }}"{% if value == key %} {% endif %}{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name~'-'~key}}"{% endif %}>
             <label class="custom-control-label"{% if value == key %} selected{% endif %} for="{% if attributes.id is defined %}{{ attributes.id }}{% else %}{{ name~'-'~key}}{% endif %}">
                 {{ label }}
             </label>
